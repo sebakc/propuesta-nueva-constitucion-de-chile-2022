@@ -18,7 +18,7 @@ for (let index = 0; index < files.length; index++) {
   const element = files[index];
   
   // Leer el contenido del archivo input.txt
-  const input = fs.readFileSync(`docs/TextoNuevaConstitucionChilena/Markdown/${element}`, 'utf8');
+  const input = fs.readFileSync(`Markdown/${element}`, 'utf8');
   
   // Separa el contenido del archivo en líneas
   let lines = input.trim().split('\n');

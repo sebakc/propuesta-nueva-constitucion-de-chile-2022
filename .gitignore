@@ -1,1 +1,2 @@
-outputs/*
+outputs/*.json
+node_modules
