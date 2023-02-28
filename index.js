@@ -66,13 +66,9 @@ for (let index = 0; index < files.length; index++) {
       }
       prevArticle = output.articulos[currentArticle].versiculos[versiculo]
       versiculo++
-    } else if (/^(\s*-?\s+[a-z]\)).*/i.exec(line)) {
+    } else if (/^((\s+-\s+[a-z]\)).*)/.exec(line)) {
       versiculo--
-      try {
-        inciso = /^((\s+-\s+[a-z]\)).*)/.exec(line)[2].trim().replace('- ', '').replace(')', '')
-      } catch (error) {
-        inciso = /^((-\s+[a-z]\)).*)/.exec(line)[2].trim().replace('- ', '').replace(')', '')
-      }
+      inciso = /^((\s+-\s+[a-z]\)).*)/.exec(line)[2].trim().replace('- ', '').replace(')', '')
       output.articulos[currentArticle].versiculos[versiculo].incisos[inciso] = line.trim().replace(/^((-\s+[a-z]\)))/, '').replace(' ', '')
       versiculo++
     } else if (inciso !== '') {
